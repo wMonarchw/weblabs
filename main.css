@@ -20,3 +20,21 @@ footer {
     text-align: right;
 
 }
+
+a:visited {
+    color:dimgrey;
+    background-color: blueviolet;
+}
+
+a:hover {
+    color:red;
+    text-decoration: underline;
+    background-color: white;
+    font-weight: bold;
+}
+
+a:active {
+    color: white;
+    background-color: green;
+
+}
