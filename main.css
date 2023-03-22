@@ -18,6 +18,16 @@ footer {
     padding: 10px;
     font-size: 16pt;
     text-align: right;
+    transition: 700ms;
+
+}
+
+footer:hover {
+    font-size: 24pt;
+    text-align: right;
+    color: greenyellow;
+    padding: 10px;
+    transition: 700ms;
 
 }
 
