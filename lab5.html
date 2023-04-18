@@ -33,6 +33,36 @@
             alert('Сумма ' + a + ' и ' + b + ' = ' + result)
         }
 
+        function ShowRaz() {
+            let inputA = document.getElementById('numberA'); 
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert('Разность ' + a + ' и ' + b + ' = ' + result)
+        }
+
+        function ShowUm() {
+            let inputA = document.getElementById('numberA'); 
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert('Произведение ' + a + ' и ' + b + ' = ' + result)
+        }
+
+        function ShowDel() {
+            let inputA = document.getElementById('numberA'); 
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a / b;
+            alert('Разность ' + a + ' и ' + b + ' = ' + result)
+        }
+
         function ShowAuthor() {
             let author = 'Автор страницы:\nЗавгородний Илья Артурович\nДевиз: отсутствует'
             alert (author)
@@ -52,6 +82,9 @@
         <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
 
         <div class="message" onclick="ShowSum()">Найти сумму чисел</div>
+        <div class="message" onclick="ShowRaz()">Найти разность чисел</div>
+        <div class="message" onclick="ShowUm()">Найти произведение чисел</div>
+        <div class="message" onclick="ShowDel()">Найти частное чисел</div>
         <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
 
     </main>
