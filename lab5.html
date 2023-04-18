@@ -17,7 +17,11 @@
             color: black;
         }
 
-
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
 
     </style>
 
@@ -30,7 +34,7 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a + b;
-            alert('Сумма ' + a + ' и ' + b + ' = ' + result)
+            alert('Сумма ' + a + ' и ' + b + ' = ' + result);
         }
 
         function ShowRaz() {
@@ -40,7 +44,7 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a - b;
-            alert('Разность ' + a + ' и ' + b + ' = ' + result)
+            alert('Разность ' + a + ' и ' + b + ' = ' + result);
         }
 
         function ShowUm() {
@@ -50,7 +54,7 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a * b;
-            alert('Произведение ' + a + ' и ' + b + ' = ' + result)
+            alert('Произведение ' + a + ' и ' + b + ' = ' + result);
         }
 
         function ShowDel() {
@@ -60,13 +64,23 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a / b;
-            alert('Разность ' + a + ' и ' + b + ' = ' + result)
+            alert('Разность ' + a + ' и ' + b + ' = ' + result);
         }
 
         function ShowAuthor() {
-            let author = 'Автор страницы:\nЗавгородний Илья Артурович\nДевиз: отсутствует'
-            alert (author)
+            let author = 'Автор страницы:\nЗавгородний Илья Артурович\nДевиз: отсутствует';
+            alert (author);
         }
+
+        function changeOutput(buttonNum, backColor, textColor, borderr) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.border = borderr;
+        }
+    
+
     </script>
 </head>
 <body>
@@ -86,6 +100,17 @@
         <div class="message" onclick="ShowUm()">Найти произведение чисел</div>
         <div class="message" onclick="ShowDel()">Найти частное чисел</div>
         <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
+
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', '3px dashed')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'white', 'thick double #32a1ce')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'white', 'black', '3px solid')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, '#ADFF2F', '#FF4500', '5px solid')">
+        </div>
+
+        <div id="output"></div>
+
 
     </main>
 
