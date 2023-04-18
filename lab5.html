@@ -54,6 +54,60 @@
             padding-top: 10px;
         }
 
+		.circle {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			text-align: center;
+			font-size: 24px;
+			line-height: 100px;
+			margin-right: 20px;
+			color: #fff;
+			font-weight: bold;
+            margin-top: 30px;
+		}
+
+		.circle-1 {
+			background-color: #f44336;
+		}
+
+		.circle-2 {
+			background-color: #e91e63;
+		}
+
+		.circle-3 {
+			background-color: #9c27b0;
+		}
+
+		.circle-4 {
+			background-color: #673ab7;
+		}
+
+		.circle-5 {
+			background-color: #3f51b5;
+		}
+
+		.circle-6 {
+			background-color: #2196f3;
+		}
+
+		.circle-7 {
+			background-color: #00bcd4;
+		}
+
+		.circle-8 {
+			background-color: #009688;
+		}
+
+		.circle-9 {
+			background-color: #4caf50;
+		}
+
+		.circle-10 {
+			background-color: #ff9800;
+		}
+
     </style>
 
     <script>
@@ -122,6 +176,12 @@
             output.innerHTML = 'Итоговая сумма: ' + result + ' руб.';
 
         }
+        
+        function removeCircle(circle) {
+            circle.style.height = '0';
+            circle.style.width = '0';
+            circle.style.fontSize = '0';
+        }
 
     </script>
 </head>
@@ -163,6 +223,17 @@
             <div id="itog">Итоговая сумма: </div>
         </div>
 
+
+        <div class="circle circle-1" onclick="removeCircle(this)">1</div>
+        <div class="circle circle-2" onclick="removeCircle(this)">2</div>
+        <div class="circle circle-3" onclick="removeCircle(this)">3</div>
+        <div class="circle circle-4" onclick="removeCircle(this)">4</div>
+        <div class="circle circle-5" onclick="removeCircle(this)">5</div>
+        <div class="circle circle-6" onclick="removeCircle(this)">6</div>
+        <div class="circle circle-7" onclick="removeCircle(this)">7</div>
+        <div class="circle circle-8" onclick="removeCircle(this)">8</div>
+        <div class="circle circle-9" onclick="removeCircle(this)">9</div>
+        <div class="circle circle-10" onclick="removeCircle(this)">10</div>
 
     </main>
 
