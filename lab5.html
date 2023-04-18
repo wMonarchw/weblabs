@@ -18,6 +18,7 @@
         }
 
 
+
     </style>
 
     <script>
@@ -29,10 +30,14 @@
             alert('Сумма ' + a + ' и ' + b + ' = ' + result)
         }
 
+        function ShowAuthor() {
+            let author = 'Автор страницы:\nЗавгородний Илья Артурович\nДевиз: отсутствует'
+            alert (author)
+        }
     </script>
 </head>
 <body>
-    <header>
+    <header onclick='ShowAuthor()'>
         НГТУ, ФБИ-14, Лабораторная 5
     </header>
 
@@ -40,12 +45,12 @@
     <main>
 
         <div class="message" onclick="ShowSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="ShowAuthor()">Узнать, кто автор страницы</div>
 
     </main>
 
 
-    <footer>
+    <footer onclick='ShowAuthor()'>
         &copy; Завгородний Илья Артурович, ФБИ-14, 2 курс, 2023
     </footer>
 </body>
