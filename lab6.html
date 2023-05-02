@@ -6,6 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Завгородний Илья Артурович. Лабораторная 6</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        .game{
+            border: 1px solid;
+            border-color: black;
+            border-radius: 3px 3px;
+            margin: auto;
+            padding: 10px; 
+            width: 50%;
+            margin-top: 20px;
+        }
+        
+    </style>
+    <script>
+
+        let number;
+        let count = 1;
+
+        function startGame() {
+            number = Math.floor(Math.random() * 100) + 1;
+            console.log(number);
+            let screens = document.getElementsByClassName('game');
+            screens[0].style.display = 'none';
+            screens[1].style.display = 'block';
+
+        }
+        function gues() {  
+            a = count++;
+            console.log(a);
+            let input = document.getElementById('user-number');
+            let userNumber = parseInt(input.value);
+            let message = document.getElementById('result');
+            if (userNumber > 100) {
+                message.innerHTML = 'Число не может быть больше 100';
+            }
+            else if (userNumber < 1) {
+                message.innerHTML = 'Число не может быть меньше 1';
+            }
+            else if (userNumber > number) {
+                message.innerHTML = 'Вы ввели большое число';
+            }
+            else if (userNumber < number) {
+                message.innerHTML = 'Вы ввели маленькое число';
+            }
+            else {
+                let screens = document.getElementsByClassName('game');
+                screens[1].style.display = 'none';
+                screens[2].style.display = 'block';
+                document.getElementById('number').innerHTML = number;
+                document.getElementById('try-count').innerHTML = a;
+            }
+        }
+        function again(){
+            count = 1;
+            let screens = document.getElementsByClassName('game');
+            screens[2].style.display = 'none';
+            screens[1].style.display = 'block';
+            startGame()
+        }
+        
+    </script>
 </head>
 <body>
     <header>
@@ -13,7 +73,32 @@
     </header>
 
     <main>
-
+        <div class="game">
+            <button onclick="startGame()">
+                Сыграть в игру
+            </button>
+        </div>
+        <div class="game" style="display: none;">
+            <h1>Угадай число!</h1>
+            <div>
+                Задумано число от 1 до 100. Угадай какое.<br>
+                <input type="number" value="" min="1" max="100" id="user-number"><br>
+                <button onclick="gues()">Угадать</button>   
+                <div id="result"></div>
+            </div>
+        </div>
+        <div class="game" style="display: none;">
+            <h1>Поздравляем вы выиграли</h1>
+            <div>
+                Задумано число: <span id="number"></span>
+            </div>
+            <div>
+                Количество попыток: <span id="try-count"></span>
+            </div>
+            <div>
+                <button onclick="again()">Сыграть еще раз</button>
+            </div>
+        </div>
     </main>
 
     <footer>
