@@ -25,6 +25,37 @@
             margin-top: 20px;
             text-align: left;
         }
+        .color{
+            border: 1px solid;
+            border-color: black;
+            border-radius: 3px 3px;
+            margin: auto;
+            padding: 10px; 
+            width: 20%;
+            margin-top: 20px;
+            background-color: yellow;
+            color: black;
+            text-align: center;
+        }
+
+        .clickmove {
+        width: 150px;
+        height: 50px;
+        background-color: #f5f5f5;
+        color: #333;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        left: 10px;
+        transition: all 0.5s ease;
+        transform: rotate(0);
+        position: relative;
+        }
+
+        
+
     </style>
     <script>
 
@@ -85,6 +116,52 @@
             helpButton.innerHTML = 'Показать правила игры';
         }
         }
+        function changeColor(div) {
+
+            if (div.style.backgroundColor == 'yellow') {
+                div.style.backgroundColor = 'red';
+                document.getElementById('color-name').innerHTML = 'красный';
+                div.style.color = 'black';
+            }
+            else if (div.style.backgroundColor == 'red') {
+                div.style.backgroundColor = 'black';
+                document.getElementById('color-name').innerHTML = 'черный';
+                div.style.color = 'white';
+            }
+            else if (div.style.backgroundColor == 'black') {
+                div.style.backgroundColor = 'pink';
+                document.getElementById('color-name').innerHTML = 'розовый';
+                div.style.color = 'black';
+            }
+            else if (div.style.backgroundColor == 'pink') {
+                div.style.backgroundColor = 'blue';
+                document.getElementById('color-name').innerHTML = 'синий';
+                div.style.color = 'white';
+            }
+            else {
+                div.style.backgroundColor = 'yellow';
+                document.getElementById('color-name').innerHTML = 'желтый';
+                div.style.color = 'black';
+            }
+        }
+
+
+        
+        let isMoved = false;
+        function move(clickmove) {
+            let click_move = document.getElementById('moving');
+            if (isMoved == false){
+                clickmove.style.left = '100px';
+                isMoved = true;
+                console.log('da')
+            }
+            else{
+                click_move.style.left = '10px';
+                isMoved=false;
+            }
+        }
+
+    
 
     </script>
 </head>
@@ -133,7 +210,13 @@
                 <li>Игра заканчивается, когда игрок угадывает задуманное число, и выводится сообщение с числом попыток.</li>
             </ol>
         </div>
-        
+        <div class="color" ondblclick="changeColor(this)">
+            Цвет: <span id="color-name">желтый</span><br>
+            Сделайте двойной клик, чтобы изменить
+        </div>
+        <div class="clickmove" id="moving" onclick="move(this)">
+            <span>Щелкни меня</span>
+        </div>
     </main>
 
     <footer>
