@@ -16,7 +16,15 @@
             width: 50%;
             margin-top: 20px;
         }
-        
+        .help {
+        margin-top: 20px;
+        text-align: center;
+        }
+
+        .help-text {
+            margin-top: 20px;
+            text-align: left;
+        }
     </style>
     <script>
 
@@ -64,7 +72,20 @@
             screens[1].style.display = 'block';
             startGame()
         }
-        
+
+        function toggleHelp() {
+        let helpButton = document.getElementById('show-help');
+        let helpText = document.getElementById('help-text');
+
+        if (helpText.style.display === 'none') {
+            helpText.style.display = 'block';
+            helpButton.innerHTML = 'Скрыть правила игры';
+        } else {
+            helpText.style.display = 'none';
+            helpButton.innerHTML = 'Показать правила игры';
+        }
+        }
+
     </script>
 </head>
 <body>
@@ -99,6 +120,20 @@
                 <button onclick="again()">Сыграть еще раз</button>
             </div>
         </div>
+        <div class="help">
+            <button id="show-help" onclick="toggleHelp()">Показать правила игры</button>
+        </div>
+        <div id="help-text" class="help-text" style="display: none;">
+            <h2>Правила игры</h2>
+            <ol>
+                <li>Задумывается число от 1 до 100.</li>
+                <li>Игрок пытается угадать задуманное число, вводя свои варианты в поле ввода.</li>
+                <li>Если число игрока меньше задуманного, выводится сообщение "Вы ввели маленькое число".</li>
+                <li>Если число игрока больше задуманного, выводится сообщение "Вы ввели большое число".</li>
+                <li>Игра заканчивается, когда игрок угадывает задуманное число, и выводится сообщение с числом попыток.</li>
+            </ol>
+        </div>
+        
     </main>
 
     <footer>
