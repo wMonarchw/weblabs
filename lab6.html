@@ -149,14 +149,15 @@
         
         let isMoved = false;
         function move(clickmove) {
-            let click_move = document.getElementById('moving');
             if (isMoved == false){
-                clickmove.style.left = '100px';
+                clickmove.style.left = '300px';
+                clickmove.style.transform = 'rotate(1turn)';
                 isMoved = true;
                 console.log('da')
             }
             else{
-                click_move.style.left = '10px';
+                clickmove.style.left = '10px';
+                clickmove.style.transform = 'rotate(4turn)';
                 isMoved=false;
             }
         }
