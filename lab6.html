@@ -17,8 +17,8 @@
             margin-top: 20px;
         }
         .help {
-        margin-top: 20px;
-        text-align: center;
+            margin-top: 20px;
+            text-align: center;
         }
 
         .help-text {
@@ -39,19 +39,19 @@
         }
 
         .clickmove {
-        width: 150px;
-        height: 50px;
-        background-color: #f5f5f5;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-        text-align: center;
-        line-height: 50px;
-        left: 10px;
-        transition: all 0.5s ease;
-        transform: rotate(0);
-        position: relative;
+            width: 150px;
+            height: 50px;
+            background-color: #f5f5f5;
+            color: #333;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            left: 10px;
+            transition: all 0.5s ease;
+            transform: rotate(0);
+            position: relative;
         }
         .clickmove:hover {
             cursor: grab;
@@ -59,18 +59,18 @@
 
         .increase {
             width: 150px;
-        height: 50px;
-        background-color: #f5f5f5;
-        color: #333;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-        text-align: center;
-        line-height: 50px;
-        left: 10px;
-        transition: all 0.5s ease;
-        position: relative;
-        margin-top: 20px;
+            height: 50px;
+            background-color: #f5f5f5;
+            color: #333;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            text-align: center;
+            line-height: 50px;
+            left: 10px;
+            transition: all 0.5s ease;
+            position: relative;
+            margin-top: 20px;
         }
         .increase:hover{
             cursor: grab;
@@ -85,9 +85,9 @@
         }
         
         #wear {
-        width: 200px;
-        height: auto; 
-        margin-top: 10px; 
+            width: 200px;
+            height: auto; 
+            margin-top: 10px; 
         }
 
 
@@ -140,16 +140,16 @@
         }
 
         function toggleHelp() {
-        let helpButton = document.getElementById('show-help');
-        let helpText = document.getElementById('help-text');
+            let helpButton = document.getElementById('show-help');
+            let helpText = document.getElementById('help-text');
 
-        if (helpText.style.display === 'none') {
-            helpText.style.display = 'block';
-            helpButton.innerHTML = 'Скрыть правила игры';
-        } else {
-            helpText.style.display = 'none';
-            helpButton.innerHTML = 'Показать правила игры';
-        }
+            if (helpText.style.display === 'none') {
+                helpText.style.display = 'block';
+                helpButton.innerHTML = 'Скрыть правила игры';
+            } else {
+                helpText.style.display = 'none';
+                helpButton.innerHTML = 'Показать правила игры';
+            }
         }
         function changeColor(div) {
 
@@ -212,26 +212,26 @@
             let type = document.getElementById('wear-type').value;
             let wear = document.getElementById('wear');
             if (color == 'Красный' && type == 'Футболка') {
-            wear.src = 'https://niceplaza.ru/wp-content/uploads/2018/10/3301525_e-4.jpg';
-            console.log('da');
+                wear.src = 'https://niceplaza.ru/wp-content/uploads/2018/10/3301525_e-4.jpg';
+                console.log('da');
             } else if (color == 'Белый' && type == 'Футболка') {
-            wear.src = 'http://supplytheory.com/wp-content/uploads/2012/11/SL04_White_Flat_Front_2009.jpg';
+                wear.src = 'http://supplytheory.com/wp-content/uploads/2012/11/SL04_White_Flat_Front_2009.jpg';
             } else if (color == 'Черный' && type == 'Футболка') {
-            wear.src = 'https://tvoydom.ru/photos/1002339030/1002339030.jpg';
+                wear.src = 'https://tvoydom.ru/photos/1002339030/1002339030.jpg';
             } else if (color == 'Красный' && type == 'Поло') {
-            wear.src = 'https://teamdobro.ru/upload/iblock/6ad/6ad1b815e908a23e731e629edd624a56.png';
+                wear.src = 'https://teamdobro.ru/upload/iblock/6ad/6ad1b815e908a23e731e629edd624a56.png';
             } else if (color == 'Белый' && type == 'Поло') {
-            wear.src = 'https://image.made-in-china.com/2f0j00hyETajiRuczY/White-Polo-T-Shirt-Bike-Wear-for-Cycling-Sports.jpg';
+                wear.src = 'https://image.made-in-china.com/2f0j00hyETajiRuczY/White-Polo-T-Shirt-Bike-Wear-for-Cycling-Sports.jpg';
             } else if (color == 'Черный' && type == 'Поло') {
-            wear.src = 'https://avatars.mds.yandex.net/i?id=fb19c7514cf1f4f302bb54499a01fde2f6cc3d25-7948163-images-thumbs&n=13';
+                wear.src = 'https://avatars.mds.yandex.net/i?id=fb19c7514cf1f4f302bb54499a01fde2f6cc3d25-7948163-images-thumbs&n=13';
             } else if (color == 'Красный' && type == 'Майка') {
-            wear.src = 'https://www.grossiste-tee-shirts.com/60988-thickbox_default/debardeur-exact-move.jpg';
+                wear.src = 'https://www.grossiste-tee-shirts.com/60988-thickbox_default/debardeur-exact-move.jpg';
             } else if (color == 'Белый' && type == 'Майка') {
-            wear.src = 'https://basketballer.ru/wp-content/uploads/2016/05/Jordan_589114-100.jpg';
+                wear.src = 'https://basketballer.ru/wp-content/uploads/2016/05/Jordan_589114-100.jpg';
             } else if (color == 'Черный' && type == 'Майка') {
-            wear.src = 'https://images-eu.ssl-images-amazon.com/images/I/31wWKT89JVL._UL1000_.jpg';
+             wear.src = 'https://images-eu.ssl-images-amazon.com/images/I/31wWKT89JVL._UL1000_.jpg';
             } else {
-            wear.src = '';
+                wear.src = '';
             }
         }
     </script>
