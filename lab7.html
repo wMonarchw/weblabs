@@ -18,20 +18,44 @@
             font-size: 16px;
             color: black;
         }
-
-        .circle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
+        table {
+            width: 200px;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-color: black;
         }
 
+        table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        table th {
+            padding: 8px;
+            text-align: center;
+            background-color: black;
+            border: 1px solid black;
+        }
+
+        .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+        #detail{
+            margin-top: 10px;
+            font-size: 24px;
+        }
+
+    
     </style>
     <script>
         let isExpanded = false;
@@ -73,7 +97,7 @@
 
                 }
                 let average = sum/exchange.length;
-                document.getElementById('detail').innerHTML = 'Среднее значение' + average;
+                document.getElementById('detail').innerHTML = 'Среднее значение = ' + average.toFixed(2) + ' руб.';
                 isExpanded = true;
             }
 
@@ -136,6 +160,50 @@
                 isExpanded = false;
             }
         }
+        function generateMultiplicationTable() {
+            let lastDigits = 01;
+            let number = lastDigits + 10;
+
+            let table = document.getElementById('multiplication-table');
+            table.innerHTML = '';
+            if (isExpanded == false){
+                for (let i = 13; i <= 33; i++) {
+                    let row = document.createElement('tr');
+                    let multiplication = i * number;
+
+                    let cell1 = document.createElement('td');
+                    cell1.innerText = i;
+
+                    let cell2 = document.createElement('td');
+                    cell2.innerText = 'x';
+
+                    let cell3 = document.createElement('td');
+                    cell3.innerText = number;
+
+                    let cell4 = document.createElement('td');
+                    cell4.innerText = '=';
+
+                    let cell5 = document.createElement('td');
+                    cell5.innerText = multiplication;
+
+                    row.appendChild(cell1);
+                    row.appendChild(cell2);
+                    row.appendChild(cell3);
+                    row.appendChild(cell4);
+                    row.appendChild(cell5);
+
+                    table.appendChild(row);
+                }
+                isExpanded = true;
+            }
+            else{
+                while(table.firstChild){
+                    table.removeChild(table.firstChild)
+                }
+            isExpanded = false;
+            }
+        }
+
 
 
     </script>
@@ -150,7 +218,7 @@
         <div id="blocks"></div>
 
         <button onclick='showExchange()'>Курс доллара</button>
-        <table border='1' id="dollar-exchange"></table>
+        <table border="0" id="dollar-exchange"></table>
         <div id="detail"></div>
 
         <button onclick="opacityBlock()">Создать блоки</button>
@@ -160,6 +228,10 @@
         <input type="number" id="circle-input" value="5" placeholder="Введите число кругов">
         <button id="color-button" onclick="createCircles()">Красное/Зеленое</button>
         <div id="circle-container"></div>
+
+        <button onclick="generateMultiplicationTable()">Таблица умножения</button>
+        <table id="multiplication-table"></table>
+
 
     </main>
 
