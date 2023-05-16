@@ -12,8 +12,8 @@
             width: 100px;
             height: 50px;
             font-size: 16px;
-
         }
+
         div{
             font-size: 16px;
             color: black;
@@ -206,6 +206,78 @@
 
 
 
+        let stockPrices = [240.15, 238.00, 237.21, 239.89, 238.90, 222.70, 232.64, 228.86, 231.15];
+        let stockDates = ['02.05.2023', '03.05.2023', '04.05.2023', '05.05.2023', '08.05.2023', '10.05.2023', '11.05.2023', '12.05.2023', '15.05.2023'];
+
+        function showStockTable() {
+            let table = document.getElementById('stock-table');
+            let averagePrice = document.getElementById('average-price');
+            let minPrice = document.getElementById('minprice');
+            let maxPrice = document.getElementById('maxprice');
+
+            let row = table.insertRow();
+            let dateHeader = row.insertCell();
+            let priceHeader = row.insertCell();
+            let differenceHeader = row.insertCell();
+
+            dateHeader.innerText = 'Дата';
+            priceHeader.innerText = 'Цена акций';
+            differenceHeader.innerText = 'Разница';
+
+            let previousPrice = null;
+
+            if (isExpanded == false){
+                for (let i = 0; i < stockPrices.length; i++) {
+                    let row = table.insertRow();
+                    let dateCell = row.insertCell();
+                    let priceCell = row.insertCell();
+                    let differenceCell = row.insertCell();
+
+                    dateCell.innerText = stockDates[i];
+                    priceCell.innerText = stockPrices[i].toFixed(2);
+
+                    if (previousPrice !== null) {
+                        let difference = stockPrices[i] - previousPrice;
+                        differenceCell.innerText = difference.toFixed(2);
+                    } else {
+                        differenceCell.innerText = '-';
+                    }
+
+                    previousPrice = stockPrices[i];
+                }
+
+                let total = stockPrices.reduce((sum, price) => sum + price, 0);
+                let average = total / stockPrices.length;
+                averagePrice.innerText = 'Среднее значение стоимости акции: ' + average.toFixed(2);
+
+                let minPrice1 = Math.min(...stockPrices); // поиск наименьшего значение в массиве
+                let maxPrice1 = Math.max(...stockPrices); // поиск наивысшего значения в массиве
+                minPrice.innerText = "Минимальное значение стоимости акции: " + minPrice1.toFixed(2);
+                maxPrice.innerText = "Максимальное значение стоимости акции: " + maxPrice1.toFixed(2);
+                isExpanded = true;
+            }
+            else{
+                while(table.rows.length > 1){
+                    table.deleteRow(1);
+ 
+                }
+
+                averagePrice.innerText = '';
+                minPrice.innerText = '';
+                maxPrice.innerText = '';
+                
+                let [dateHeader, priceHeader, differenceHeader] = table.rows[0].cells;
+
+                dateHeader.style.display = 'none';
+                priceHeader.style.display = 'none';
+                differenceHeader.style.display = 'none';
+
+                isExpanded = false;
+                
+            }
+        }
+
+
     </script>
 </head>
 <body>
@@ -232,6 +304,11 @@
         <button onclick="generateMultiplicationTable()">Таблица умножения</button>
         <table id="multiplication-table"></table>
 
+        <button onclick="showStockTable()">Курс акций Сбера</button>
+        <table id="stock-table"></table>
+        <p id="average-price"></p>
+        <p id="minprice"></p>
+        <p id="maxprice"></p>
 
     </main>
 
