@@ -7,38 +7,91 @@
     <title>Завгородний Илья Артурович. Лабораторная 7</title>
     <link rel="stylesheet" href="main.css">
     <style>
+        button{
+            margin:10px;
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
 
+        }
+        div{
+            font-size: 16px;
+            color: black;
+        }
     </style>
     <script>
+        let isExpanded = false;
         function addBlocks(){
             let blocks = document.getElementById('blocks');
-            for (let i = 0; i < 10; i++) {
+            if (isExpanded == false) {
+                for (let i = 0; i < 10; i++) {
 
-                let block = document.createElement('div');
-                block.innerHTML = 'Блок # ' + (i+1) + ":" + (2*i**2);
+                    let block = document.createElement('div');
+                    block.innerHTML = 'Блок # ' + (i+1) + ":" + (2*i**2);
 
-                blocks.appendChild(block);
+                    blocks.appendChild(block);
+                }
+                isExpanded = true;
+            }
+            else{
+                while (blocks.firstChild){
+                    blocks.removeChild(blocks.firstChild);
+                }
+                isExpanded = false;
             }
         }
 
         function showExchange(){
             let exchange = [79.1004, 77.2041, 75.88, 76.69, 76.82, 78.61, 79.30, 79.96];
             let table = document.getElementById('dollar-exchange');
-            for (let i = 0; i < exchange.length; i++) {
-                let tr = document.createElement('tr');
-                let td = document.createElement('td');
-                td.innerHTML = exchange[i];
-                tr.appendChild(td);
-                table.appendChild(tr);
+            if (isExpanded == false) {
+                for (let i = 0; i < exchange.length; i++) {
+                    let tr = document.createElement('tr');
+                    let td = document.createElement('td');
+                    td.innerHTML = exchange[i];
+                    tr.appendChild(td);
+                    table.appendChild(tr);
+                }
+
+                let sum = 0;
+                for (let i=0; i<exchange.length; i++) {
+                    sum = sum + exchange[i];
+
+                }
+                let average = sum/exchange.length;
+                document.getElementById('detail').innerHTML = 'Среднее значение' + average;
+                isExpanded = true;
             }
 
-            let sum = 0;
-            for (let i=0; i<exchange.length; i++) {
-                sum = sum + exchange[i];
-
+            else{
+                while(table.firstChild){
+                    table.removeChild(table.firstChild);
+                    document.getElementById('detail').innerHTML = ''
+                }
+                isExpanded = false;
             }
-            let average = sum/exchange.length;
-            document.getElementById('detail').innerHTML = 'Среднее значение' + average;
+        }
+
+        
+        function opacityBlock(){
+            let block_opacity = document.getElementById('opacity-block');
+            if (isExpanded == false) {
+                for (let i=0; i<10; i++) {
+                    let block = document.createElement('div');
+                    let opacity = i/10;
+                    block.style.opacity = opacity;
+                    block_opacity.appendChild(block);
+                    block.innerHTML = (' Содержимое блока ') + (i+1);
+                    console.log('da');
+                isExpanded = true;
+                }
+            }
+            else {
+                while (block_opacity.firstChild){
+                    block_opacity.removeChild(block_opacity.firstChild)
+                    }
+                isExpanded = false;
+            }
         }
     </script>
 </head>
@@ -54,6 +107,9 @@
         <button onclick='showExchange()'>Курс доллара</button>
         <table border='1' id="dollar-exchange"></table>
         <div id="detail"></div>
+
+        <button onclick="opacityBlock()">Создать блоки</button>
+        <div id="opacity-block"></div>
 
     </main>
 
