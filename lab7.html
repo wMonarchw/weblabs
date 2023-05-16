@@ -18,6 +18,20 @@
             font-size: 16px;
             color: black;
         }
+
+        .circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        }
+
     </style>
     <script>
         let isExpanded = false;
@@ -93,6 +107,37 @@
                 isExpanded = false;
             }
         }
+
+        function createCircles() {
+            let circleContainer = document.getElementById('circle-container');
+            let circleInput = document.getElementById('circle-input');
+            
+            circleContainer.innerHTML = '';
+
+            if (circleInput.value.trim() === '') {
+                circleInput.value = 5;
+            }
+
+            let numCircles = parseInt(circleInput.value);
+            if (isExpanded==false){
+                for (let i = numCircles; i >= 1; i--) {
+                    let circle = document.createElement('div');
+                    circle.classList.add('circle');
+                    circle.innerText = i;
+                    circle.style.backgroundColor = i % 2 === 0 ? 'green' : 'red';
+                    circleContainer.appendChild(circle);
+                }
+                isExpanded=true;
+            }
+            else{
+                while(circleContainer.firstChild){
+                    circleContainer.removeChild(circleContainer.firstChild);
+                }
+                isExpanded = false;
+            }
+        }
+
+
     </script>
 </head>
 <body>
@@ -110,6 +155,11 @@
 
         <button onclick="opacityBlock()">Создать блоки</button>
         <div id="opacity-block"></div>
+
+
+        <input type="number" id="circle-input" value="5" placeholder="Введите число кругов">
+        <button id="color-button" onclick="createCircles()">Красное/Зеленое</button>
+        <div id="circle-container"></div>
 
     </main>
 
