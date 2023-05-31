@@ -7,13 +7,19 @@
     <title>Завгородний Илья Артурович</title>
     <link rel="stylesheet" href="main.css">
     <script src="lab8.js"></script>
+    <style>
+        #time{
+            position: relative;
+            left: 1800px;
+            color: black;
+        }
+    </style>
 </head>
 <body onload="showDate()">
     <header>
         НГТУ, ФБ, Лабораторная работа 8
         <div id="time"></div>
     </header>
-    
     <main>
         <div id="current-date"></div>
         <div id="current-date1"></div>
@@ -27,6 +33,7 @@
         <div>
             <button onclick="showDaysCount()">Показать число дней</button>
             <div id="days"></div>
+            <button onclick="ClearAll()">Закрыть все</button>
         </div>
     </main>
 </body>

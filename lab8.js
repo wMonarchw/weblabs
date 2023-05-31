@@ -27,3 +27,12 @@ function showTime() {
     document.getElementById('time').innerHTML = currentTime;
 }
 setInterval(showTime, 1000);
+
+
+function ClearAll(){
+    let inputDate = document.querySelector('input[type=date');
+    let day = document.getElementById('days');
+
+    inputDate.value = '';
+    day.innerHTML = '';
+}
