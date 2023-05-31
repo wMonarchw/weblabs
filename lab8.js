@@ -20,3 +20,10 @@ function showDaysCount(){
     daysCount = Math.floor(daysCount);
     let days = document.getElementById('days').innerHTML = 'Количество дней с даты рождения: ' + daysCount;
 }
+
+function showTime() {
+    let today = new Date();
+    let currentTime = today.toLocaleTimeString('ru-RU');
+    document.getElementById('time').innerHTML = currentTime;
+}
+setInterval(showTime, 1000);
